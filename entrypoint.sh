@@ -3,7 +3,7 @@ set -e
 set -o pipefail
 main() {
   echo "Current ref: ${GITHUB_REF}"
-  BRANCH="${GITHUB_REF//refs\//}"
+  BRANCH="${GITHUB_REF//refs\/pull\/*[0-9]\//}"
   echo "Current branch: ${BRANCH}"
 
   if [ "$BRANCH" == "master" ]; then
